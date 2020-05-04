@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="基础的javascript语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript基础语法">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/javascript-1/index.html">
+<meta property="og:site_name" content="小小白帽子">
+<meta property="og:description" content="基础的javascript语法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-23T08:37:29.000Z">
+<meta property="article:modified_time" content="2020-05-03T08:39:12.606Z">
+<meta property="article:author" content="小小帽子">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/23/javascript-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>javascript基础语法 | 小小白帽子</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小小白帽子</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个国爱的安全菜鸟</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/23/javascript-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="小小帽子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小白帽子">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          javascript基础语法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-23 16:37:29" itemprop="dateCreated datePublished" datetime="2020-04-23T16:37:29+08:00">2020-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-03 16:39:12" itemprop="dateModified" datetime="2020-05-03T16:39:12+08:00">2020-05-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/23/javascript-1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/23/javascript-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">基础的javascript语法</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="JavaScript基础学习"><a href="#JavaScript基础学习" class="headerlink" title="JavaScript基础学习"></a>JavaScript基础学习</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//单行注释</span><br><span class="line"><span class="comment">/*多行注释*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h2><table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\‘</td>
+<td>英文单引号</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>英文双引号</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>转行符</td>
+</tr>
+</tbody></table>
+<h2 id="JavaScript引入方式"><a href="#JavaScript引入方式" class="headerlink" title="JavaScript引入方式"></a>JavaScript引入方式</h2><ul>
+<li>外部JavaScript</li>
+<li>内部JavaScript</li>
+<li>元素事件JavaScript</li>
+</ul>
+<h3 id="外部JavaScript"><a href="#外部JavaScript" class="headerlink" title="外部JavaScript"></a>外部JavaScript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"index.js"</span>&gt;&lt;<span class="regexp">/script&gt;/</span><span class="regexp">/可以在head中引用，还可以在body中引用</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="内部JavaScript"><a href="#内部JavaScript" class="headerlink" title="内部JavaScript"></a>内部JavaScript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="元素属性JavaScript"><a href="#元素属性JavaScript" class="headerlink" title="元素属性JavaScript"></a>元素属性JavaScript</h3><p>指的是在元素的“事件属性”中直接编写JavaScript或调用函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"按钮"</span> onclick=<span class="string">"alert('欢迎使用')"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="语法基础"><a href="#语法基础" class="headerlink" title="语法基础"></a>语法基础</h2><h3 id="变量声明赋值"><a href="#变量声明赋值" class="headerlink" title="变量声明赋值"></a>变量声明赋值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名 = 变量值;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li>基本数据类型</li>
+<li>引用数据类型</li>
+<li>所有变量都是用var声明</li>
+</ul>
+<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><h5 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"test"</span>;</span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">'test'</span>;</span><br><span class="line"><span class="comment">//单引号括起来的字符可以包含双引号</span></span><br><span class="line"><span class="comment">//双引号括起来的字符可以包含单引号</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h5><p>出现最多的地方：选择结构的条件判断</p>
+<h5 id="未定义值"><a href="#未定义值" class="headerlink" title="未定义值"></a>未定义值</h5><p>只声明为赋值</p>
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>与C++、java的类似比较特殊的是，加法运算的一些区别</p>
+<h4 id="加法运算符"><a href="#加法运算符" class="headerlink" title="加法运算符"></a>加法运算符</h4><ul>
+<li>数字+数字=数字</li>
+<li>字符串+字符串=字符串</li>
+<li>字符串+数字=字符串</li>
+</ul>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
+<li>隐式类型转换</li>
+<li>显示类型转换</li>
+</ul>
+<h4 id="显示类型转化"><a href="#显示类型转化" class="headerlink" title="显示类型转化"></a>显示类型转化</h4><h5 id="“字符串”转换为“数字”"><a href="#“字符串”转换为“数字”" class="headerlink" title="“字符串”转换为“数字”"></a>“字符串”转换为“数字”</h5><ul>
+<li>Number():只能够处理纯数字的字符串</li>
+<li>parseInt():能够处理非数字的字符串，但是第一个字符不能是字符串</li>
+<li>parseFloat():首字符是“+”或者“-”都能被正常解析;不管是整数还是小数部分都能处理；其余和parseInt一样</li>
+</ul>
+<h5 id="“数字”转换为“字符串”"><a href="#“数字”转换为“字符串”" class="headerlink" title="“数字”转换为“字符串”"></a>“数字”转换为“字符串”</h5><ul>
+<li>与空字符串相加</li>
+<li>toString()</li>
+</ul>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="选择结构-if"><a href="#选择结构-if" class="headerlink" title="选择结构:if"></a>选择结构:if</h3><ul>
+<li>单向选择：if…</li>
+<li>双向选择：if…else…</li>
+<li>多向选择：if…else if…else…</li>
+</ul>
+<h3 id="选择结构：switch"><a href="#选择结构：switch" class="headerlink" title="选择结构：switch"></a>选择结构：switch</h3><p>与C++、java类似</p>
+<h3 id="循环结构：while"><a href="#循环结构：while" class="headerlink" title="循环结构：while"></a>循环结构：while</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(条件)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名（参数1,参数2,...,参数<span class="title">n</span>)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="有返回值的函数"><a href="#有返回值的函数" class="headerlink" title="有返回值的函数"></a>有返回值的函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">参数<span class="number">1</span>,参数<span class="number">2</span>,...,参数n</span>)</span>&#123;</span><br><span class="line">	......</span><br><span class="line">	<span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a>全局变量与局部变量</h3><ul>
+<li>全局变量：一般在主程序中定义，其有效范围是从定义开始，一直到整个程序结束为止。</li>
+<li>局部变量：一般定义在函数中，函数执行完了就没了。</li>
+</ul>
+<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><ul>
+<li><p>直接调用</p>
+</li>
+<li><p>在表达式中调用</p>
+</li>
+<li><p>在超链接中调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:函数名"</span>&gt;&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在事件中调用</p>
+</li>
+</ul>
+<h2 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h2><h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串名.length</span><br></pre></td></tr></table></figure>
+
+<h4 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串名.toLowerCase()</span><br><span class="line">字符串名.toUpperCase()</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取某一个字符"><a href="#获取某一个字符" class="headerlink" title="获取某一个字符"></a>获取某一个字符</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串名.charAt(n)</span><br></pre></td></tr></table></figure>
+
+<h4 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h4><ul>
+<li>截取范围为:[start,end)，包含start而不包含end</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">substring(start,end)<span class="comment">//从start到end前一个</span></span><br><span class="line">substring(start)<span class="comment">//从start到最后</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="替换字符串"><a href="#替换字符串" class="headerlink" title="替换字符串"></a>替换字符串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串名.replace(源字符串，替换字符串)<span class="comment">//1</span></span><br><span class="line">字符串名.replace(正则表达式，替换字符串)<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一式替换第一此出现匹配的字符串</li>
+<li>二式替换所有匹配的字符串</li>
+</ul>
+<h4 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符串名.split(<span class="string">"分隔符"</span>);</span><br><span class="line"><span class="comment">//区分：</span></span><br><span class="line"><span class="comment">//str.split("")和str.split(" ")两者不同的结果</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="检索字符串的位置"><a href="#检索字符串的位置" class="headerlink" title="检索字符串的位置"></a>检索字符串的位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符串名.indexOf(指定字符串)<span class="comment">//返回首次出现的下标位置</span></span><br><span class="line">字符串名.lastIndexOf(指定字符串)<span class="comment">//返回最后出现的下标位置</span></span><br><span class="line"><span class="comment">//检索不出时，都返回-1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><h3 id="数组的创建"><a href="#数组的创建" class="headerlink" title="数组的创建"></a>数组的创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 数组名 = <span class="keyword">new</span> <span class="built_in">Array</span>(元素<span class="number">1</span>，元素<span class="number">2</span>， ...... ，元素n);</span><br><span class="line"><span class="keyword">var</span> 数组名 = [元素<span class="number">1</span>，元素<span class="number">2</span>，......，元素n];</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取数组长度"><a href="#获取数组长度" class="headerlink" title="获取数组长度"></a>获取数组长度</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名.length</span><br></pre></td></tr></table></figure>
+
+<h3 id="截取数组某部分"><a href="#截取数组某部分" class="headerlink" title="截取数组某部分"></a>截取数组某部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名.slice(start,end);<span class="comment">//截获方式与substring类似</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="为数组添加元素"><a href="#为数组添加元素" class="headerlink" title="为数组添加元素"></a>为数组添加元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数组名.unshift(新元素<span class="number">1</span>，新元素<span class="number">2</span>，新元素<span class="number">3.</span>.....)<span class="comment">//在数组最开头添加</span></span><br><span class="line">数组名.push(新元素<span class="number">1</span>，新元素<span class="number">2</span>，......)<span class="comment">//在数组最后添加</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数组元素"><a href="#删除数组元素" class="headerlink" title="删除数组元素"></a>删除数组元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数组名.shift();<span class="comment">//删除数组最开头元素</span></span><br><span class="line">数组名.pop();<span class="comment">//删除数组最后面元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组大小比较"><a href="#数组大小比较" class="headerlink" title="数组大小比较"></a>数组大小比较</h3><p>sort();</p>
+<h3 id="数组颠倒顺序"><a href="#数组颠倒顺序" class="headerlink" title="数组颠倒顺序"></a>数组颠倒顺序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名.reverse();</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组元素连接成字符串"><a href="#数组元素连接成字符串" class="headerlink" title="数组元素连接成字符串"></a>数组元素连接成字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名.join(<span class="string">"连接符"</span>);<span class="comment">//不改变原数组</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="时间对象"><a href="#时间对象" class="headerlink" title="时间对象"></a>时间对象</h2><h3 id="创建时间对象"><a href="#创建时间对象" class="headerlink" title="创建时间对象"></a>创建时间对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 日期对象名 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="操作年、月、日"><a href="#操作年、月、日" class="headerlink" title="操作年、月、日"></a>操作年、月、日</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getFullYear()</td>
+<td>获取年份，取值为4为数字</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>获取月份，取值为0（一月）到11（十二月）之间的整数</td>
+</tr>
+<tr>
+<td>getDate()</td>
+<td>获取日期，取值为1~31之间的整数</td>
+</tr>
+</tbody></table>
+<h3 id="操作时、分、秒"><a href="#操作时、分、秒" class="headerlink" title="操作时、分、秒"></a>操作时、分、秒</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getHours()</td>
+<td>获取小时数，取值为0~23之间的整数</td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td>获取分钟数，取值为0~59之间的整数</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>获取秒数，取值为0~59之间的整数</td>
+</tr>
+</tbody></table>
+<h3 id="设置年、月、日"><a href="#设置年、月、日" class="headerlink" title="设置年、月、日"></a>设置年、月、日</h3><p>操作年、月、日的get换成set</p>
+<h3 id="设置年、月、日-1"><a href="#设置年、月、日-1" class="headerlink" title="设置年、月、日"></a>设置年、月、日</h3><p>操作时、分、秒的get换成set</p>
+<h3 id="获取星期几"><a href="#获取星期几" class="headerlink" title="获取星期几"></a>获取星期几</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间对象.getDay();</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数学对象"><a href="#数学对象" class="headerlink" title="数学对象"></a>数学对象</h2><h2 id="DOM基础"><a href="#DOM基础" class="headerlink" title="DOM基础"></a>DOM基础</h2><h3 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h3><ul>
+<li>getElementById():</li>
+<li>getElementsByTagName():获取的是类数组，只能使用到length属性和下标的形式</li>
+<li>getElementsByClassName():：获取的是类数组，<font color="red">不能操作动态的DOM元素</font></li>
+<li>querySelector()和querySelectorAll()</li>
+<li>getElementsByName():</li>
+<li>document.title和document.body</li>
+</ul>
+<h4 id="getElementById-和getElementsByTagName"><a href="#getElementById-和getElementsByTagName" class="headerlink" title="getElementById()和getElementsByTagName()"></a>getElementById()和getElementsByTagName()</h4><ul>
+<li>前者获取的是一个元素，后者获取多个元素</li>
+<li>前者只可以接document，后者还可以接DOM对象</li>
+<li>前者不能操作动态创建的DOM元素，后者可以</li>
+</ul>
+<h3 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h3><ul>
+<li>创建元素节点：createElement()</li>
+<li>创建文本节点：createTextNode()</li>
+<li>A.appendChild(B)把B插入到A中</li>
+</ul>
+<h3 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h3><ul>
+<li>appendChild():在最后插入</li>
+<li>insertBefore():可指定位置插入</li>
+</ul>
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><ul>
+<li>removeChild()</li>
+</ul>
+<h3 id="替换元素"><a href="#替换元素" class="headerlink" title="替换元素"></a>替换元素</h3><ul>
+<li>replaceChild()</li>
+</ul>
+<h3 id="操作元素对象属性"><a href="#操作元素对象属性" class="headerlink" title="操作元素对象属性"></a>操作元素对象属性</h3><ul>
+<li>对象属性操作</li>
+<li>对象方法操作</li>
+</ul>
+<p><strong>两者区别:</strong></p>
+<p>对象属性不能对自定义属性进行操作,对象方法可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">**对象属性操作**</span><br><span class="line">obj.attr&#x2F;&#x2F;获取对象属性</span><br><span class="line">obj.attr &#x3D; &quot;值&quot;;&#x2F;&#x2F;设置对对象属性</span><br><span class="line"></span><br><span class="line">**对象方法属性操作**</span><br><span class="line">getAttribute(&quot;attr&quot;)&#x2F;&#x2F;获取对象属性</span><br><span class="line">setAttribute(&quot;attr&quot;,&quot;值&quot;)&#x2F;&#x2F;设置对象属性</span><br><span class="line">removeAttribute(&quot;attr&quot;)&#x2F;&#x2F;删除对象属性</span><br><span class="line">hasAttribute(&quot;attr&quot;)&#x2F;&#x2F;判断元素是否存在属性</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/20/css-1/" rel="prev" title="CSS基础学习笔记（只算得上是小字典吧）">
+      <i class="fa fa-chevron-left"></i> CSS基础学习笔记（只算得上是小字典吧）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/03/php-1/" rel="next" title="php_1">
+      php_1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript基础学习"><span class="nav-number">1.</span> <span class="nav-text">JavaScript基础学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义符"><span class="nav-number">1.2.</span> <span class="nav-text">转义符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript引入方式"><span class="nav-number">1.3.</span> <span class="nav-text">JavaScript引入方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外部JavaScript"><span class="nav-number">1.3.1.</span> <span class="nav-text">外部JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部JavaScript"><span class="nav-number">1.3.2.</span> <span class="nav-text">内部JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素属性JavaScript"><span class="nav-number">1.3.3.</span> <span class="nav-text">元素属性JavaScript</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法基础"><span class="nav-number">1.4.</span> <span class="nav-text">语法基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明赋值"><span class="nav-number">1.4.1.</span> <span class="nav-text">变量声明赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.4.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数字"><span class="nav-number">1.4.2.1.1.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串"><span class="nav-number">1.4.2.1.2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布尔值"><span class="nav-number">1.4.2.1.3.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#未定义值"><span class="nav-number">1.4.2.1.4.</span> <span class="nav-text">未定义值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用数据类型"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">引用数据类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">1.5.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-number">1.5.1.</span> <span class="nav-text">算术运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加法运算符"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">加法运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">1.6.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示类型转化"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">显示类型转化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#“字符串”转换为“数字”"><span class="nav-number">1.6.0.1.1.</span> <span class="nav-text">“字符串”转换为“数字”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#“数字”转换为“字符串”"><span class="nav-number">1.6.0.1.2.</span> <span class="nav-text">“数字”转换为“字符串”</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">1.7.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择结构-if"><span class="nav-number">1.7.1.</span> <span class="nav-text">选择结构:if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择结构：switch"><span class="nav-number">1.7.2.</span> <span class="nav-text">选择结构：switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构：while"><span class="nav-number">1.7.3.</span> <span class="nav-text">循环结构：while</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.8.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">1.8.1.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有返回值的函数"><span class="nav-number">1.8.2.</span> <span class="nav-text">有返回值的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量与局部变量"><span class="nav-number">1.8.3.</span> <span class="nav-text">全局变量与局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的调用"><span class="nav-number">1.8.4.</span> <span class="nav-text">函数的调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串对象"><span class="nav-number">1.9.</span> <span class="nav-text">字符串对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取字符串长度"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">获取字符串长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大小写转换"><span class="nav-number">1.9.0.2.</span> <span class="nav-text">大小写转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取某一个字符"><span class="nav-number">1.9.0.3.</span> <span class="nav-text">获取某一个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截取字符串"><span class="nav-number">1.9.0.4.</span> <span class="nav-text">截取字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换字符串"><span class="nav-number">1.9.0.5.</span> <span class="nav-text">替换字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分割字符串"><span class="nav-number">1.9.0.6.</span> <span class="nav-text">分割字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检索字符串的位置"><span class="nav-number">1.9.0.7.</span> <span class="nav-text">检索字符串的位置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组对象"><span class="nav-number">1.10.</span> <span class="nav-text">数组对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的创建"><span class="nav-number">1.10.1.</span> <span class="nav-text">数组的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取数组长度"><span class="nav-number">1.10.2.</span> <span class="nav-text">获取数组长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截取数组某部分"><span class="nav-number">1.10.3.</span> <span class="nav-text">截取数组某部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为数组添加元素"><span class="nav-number">1.10.4.</span> <span class="nav-text">为数组添加元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数组元素"><span class="nav-number">1.10.5.</span> <span class="nav-text">删除数组元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组大小比较"><span class="nav-number">1.10.6.</span> <span class="nav-text">数组大小比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组颠倒顺序"><span class="nav-number">1.10.7.</span> <span class="nav-text">数组颠倒顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素连接成字符串"><span class="nav-number">1.10.8.</span> <span class="nav-text">数组元素连接成字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间对象"><span class="nav-number">1.11.</span> <span class="nav-text">时间对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建时间对象"><span class="nav-number">1.11.1.</span> <span class="nav-text">创建时间对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作年、月、日"><span class="nav-number">1.11.2.</span> <span class="nav-text">操作年、月、日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作时、分、秒"><span class="nav-number">1.11.3.</span> <span class="nav-text">操作时、分、秒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置年、月、日"><span class="nav-number">1.11.4.</span> <span class="nav-text">设置年、月、日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置年、月、日-1"><span class="nav-number">1.11.5.</span> <span class="nav-text">设置年、月、日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取星期几"><span class="nav-number">1.11.6.</span> <span class="nav-text">获取星期几</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学对象"><span class="nav-number">1.12.</span> <span class="nav-text">数学对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM基础"><span class="nav-number">1.13.</span> <span class="nav-text">DOM基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取元素"><span class="nav-number">1.13.1.</span> <span class="nav-text">获取元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getElementById-和getElementsByTagName"><span class="nav-number">1.13.1.1.</span> <span class="nav-text">getElementById()和getElementsByTagName()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建元素"><span class="nav-number">1.13.2.</span> <span class="nav-text">创建元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入元素"><span class="nav-number">1.13.3.</span> <span class="nav-text">插入元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除元素"><span class="nav-number">1.13.4.</span> <span class="nav-text">删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换元素"><span class="nav-number">1.13.5.</span> <span class="nav-text">替换元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作元素对象属性"><span class="nav-number">1.13.6.</span> <span class="nav-text">操作元素对象属性</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小小帽子"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">小小帽子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:869033732@qq.com" title="E-Mail → mailto:869033732@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小小帽子</span>
+<img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+<a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备20016725号</a>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'IPtTYhCu9cMGafEEmLdtSVMW-gzGzoHsz',
+      appKey     : 'VBAcdUUIcJdtlNuQy9x72XSj',
+      placeholder: "感谢你的评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
